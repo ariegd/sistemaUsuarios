@@ -1,0 +1,22 @@
+sistemaUsuarios
+
+
+Para mejor la interfaces del sitio por supuesto que se utilizó CSS, poro con el framework Bootstrap.
+carpetas:
+-css
+-js
+-fonts
+
+Se utilizó otra libreria o framework para el envio del correo en PHP, PHP Mailer
+
+Dentro de la carpeta funcs se encuentra dos ficheros, uno para la conexión y el otro algunas funciones que se van a necesitar
+
+1. cambiar en el fichero conexion.php, los datos para conectarnos a nuestro MySQL
+
+2. abriendo el fichero registro.php, lo que tenemos es etiquetas HTML, nada mas el php lo vamos a generar nosotros.
+
+Aquí se puede ver que existen 2 tipos de validaciones del lado del cliente(HTML) y del lado del servidor(PHP)
+
+Entre las modificaciones que se le va a hacer a este fichero es en el catcha de Google que hay que registrarse y poner los datos de uno ahí.
+
+Se envia el mismo "$_SERVER['PHP_SELF']", por el metodo POST, hay que programar en el fichero registro
