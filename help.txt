@@ -20,3 +20,8 @@ Aquí se puede ver que existen 2 tipos de validaciones del lado del cliente(HTML)
 Entre las modificaciones que se le va a hacer a este fichero es en el catcha de Google que hay que registrarse y poner los datos de uno ahí.
 
 Se envia el mismo "$_SERVER['PHP_SELF']", por el metodo POST, hay que programar en el fichero registro
+
+3. Recordar que para probar el proyecto hay que:
+* Cambiar los datos de conexión a MySQL.
+* Del catcha
+* Y del correo electronico para que no nos envie ningún error.
