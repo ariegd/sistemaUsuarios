@@ -124,26 +124,31 @@
 		require_once 'PHPMailer/PHPMailerAutoload.php';
 		
 		$mail = new PHPMailer();
+
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
-		$mail->SMTPSecure = 'tipo de seguridad';
-		$mail->Host = 'smtp.hosting.com';
-		$mail->Port = 'puerto';
+		$mail->SMTPSecure = 'tls';
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = '587';
 		
-		$mail->Username = 'miemail@dominio.com';
-		$mail->Password = 'password';
+		$mail->Username = 'ariegd4@gmail.com';
+		$mail->Password = 'gamez2015';
 		
-		$mail->setFrom('miemail@dominio.com', 'Sistema de Usuarios');
+		$mail->setFrom('ariegd4@gmail.com', 'Sistema de Usuarios');
 		$mail->addAddress($email, $nombre);
-		
+
+
 		$mail->Subject = $asunto;
 		$mail->Body    = $cuerpo;
 		$mail->IsHTML(true);
-		
-		if($mail->send())
-		return true;
-		else
-		return false;
+
+
+		if($mail->send()) {
+            return true;
+        }else{
+            return false;
+        }
+
 	}
 	
 	function validaIdToken($id, $token){
