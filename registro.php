@@ -34,7 +34,7 @@
          */
         $activo = 0;
         $tipo_usuario = 2;
-        $secret = '6LfVBCsUAAAAAJPrPXPSJe-UPdMFGbMiyJWnTVzx';//Modificar
+        $secret = 'Tu clave :)';//Modificar
 
         /**
          * A partir de aquí comenzamos con las validaciones de cada una de las variables
@@ -244,7 +244,7 @@
 							
 							<div class="form-group">
 								<label for="captcha" class="col-md-3 control-label"></label>
-								<div class="g-recaptcha col-md-9" data-sitekey="6LfVBCsUAAAAAObzF-i3QC7fBIKi5MkXQ0CnXejw"></div>
+								<div class="g-recaptcha col-md-9" data-sitekey="Tu clave :)"></div> <!-- Modificar -->
 							</div>
 							
 							<div class="form-group">                                      
