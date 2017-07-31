@@ -127,14 +127,14 @@
 
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
-		$mail->SMTPSecure = 'tls';
-		$mail->Host = 'smtp.gmail.com';
-		$mail->Port = '587';
+		$mail->SMTPSecure = 'tipo de seguridad';
+		$mail->Host = 'smtp.hosting.com';
+		$mail->Port = 'puerto';
 		
-		$mail->Username = 'ariegd4@gmail.com';
-		$mail->Password = 'gamez2015';
+		$mail->Username = 'miemail@dominio.com';
+		$mail->Password = 'password';
 		
-		$mail->setFrom('ariegd4@gmail.com', 'Sistema de Usuarios');
+		$mail->setFrom('miemail@dominio.com', 'Sistema de Usuarios');
 		$mail->addAddress($email, $nombre);
 
 
