@@ -31,7 +31,7 @@
 							
 							<div style="margin-top:10px" class="form-group">
 								<div class="col-sm-12 controls">
-									<button id="btn-login" type="submit" class="btn btn-success">Enviar</a>
+									<button id="btn-login" type="submit" class="btn btn-success">Enviar</button>
 								</div>
 							</div>
 							

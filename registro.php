@@ -34,7 +34,7 @@
          */
         $activo = 0;
         $tipo_usuario = 2;
-        $secret = 'clave secreta de reCaptcha';//Modificar
+        $secret = '6LfVBCsUAAAAAJPrPXPSJe-UPdMFGbMiyJWnTVzx';//Modificar
 
         /**
          * A partir de aquí comenzamos con las validaciones de cada una de las variables
@@ -122,7 +122,7 @@
                      * y una varible valor que va a ser el token,
                      * para que así el usuario pueda validarse
                      */
-                    $url = 'http://'.$_SERVER["SERVER_NAME"].'/login/activar.php?id='.$registro.'&val='.$token;
+                    $url = 'http://'.$_SERVER["SERVER_NAME"].'/SistemaUsuarios/activar.php?id='.$registro.'&val='.$token;
 
                     /**
                      * Ahora agremos el asunto y cuerpo para el correo electronico.
@@ -244,7 +244,7 @@
 							
 							<div class="form-group">
 								<label for="captcha" class="col-md-3 control-label"></label>
-								<div class="g-recaptcha col-md-9" data-sitekey="clave de reCaptcha"></div>
+								<div class="g-recaptcha col-md-9" data-sitekey="6LfVBCsUAAAAAObzF-i3QC7fBIKi5MkXQ0CnXejw"></div>
 							</div>
 							
 							<div class="form-group">                                      

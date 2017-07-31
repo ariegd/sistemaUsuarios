@@ -7,5 +7,4 @@
 		exit();
 	}
 
-echo 'Conexion Exitosa';
 ?>
