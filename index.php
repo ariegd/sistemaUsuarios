@@ -1,3 +1,38 @@
+<?php
+    session_start(); // al momento de iniciar session pueda generar nuestras variables de session
+    require 'funcs/conexion.php';
+    require 'funcs/funcs.php';
+
+    /**
+     * Utilizamos al igual que en el registro un arreglo para ir guardando todos
+     * los errores que tengamos.
+     */
+    $errors = array();
+
+    /**
+     * Y vamos a validar lo que el usuario envia en el $_POST. Se puede observar
+     * en el HTML que se envia la informacon asi mismo mediante el $_SERVER['PHP_SELF']
+     */
+    if(!empty($_POST)){
+        $usuario = $mysqli->real_escape_string($_POST['usuario']);
+        $password = $mysqli->real_escape_string($_POST['password']);
+
+        /**
+         * Ahora validamos que los campos no sean nulos mediante la función
+         * 'isNullLogin'
+         */
+        if(isNullLogin($usuario, $password)){
+            $errors = "Debe llenar todos los campos";
+        }
+
+        /**
+         * Ya ahora implementamos el inicio de sesion mediante la función 'login',
+         * es la que se encarga de todo practicamente, es decir la validacion
+         */
+        $errors[] = login($usuario, $password);
+    }
+
+?>
 <html>
 	<head>
 		<title>Login</title>
@@ -48,6 +83,9 @@
 								</div>
 							</div>    
 						</form>
+                        <?php //Esto es para mostrar los errores
+                            echo resultBlock($errors);
+                        ?>
 					</div>                     
 				</div>  
 			</div>

@@ -127,14 +127,14 @@
 
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
-		$mail->SMTPSecure = 'tls';
-		$mail->Host = 'smtp.gmail.com';
-		$mail->Port = '587';
-		
-		$mail->Username = 'ariegd4@gmail.com';
-		$mail->Password = 'gamez2015';
-		
-		$mail->setFrom('ariegd4@gmail.com', 'Sistema de Usuarios');
+        $mail->SMTPSecure = 'tipo de seguridad';
+        $mail->Host = 'smtp.hosting.com';
+        $mail->Port = 'puerto';
+
+        $mail->Username = 'miemail@dominio.com';
+        $mail->Password = 'password';
+
+        $mail->setFrom('miemail@dominio.com', 'Sistema de Usuarios');
 		$mail->addAddress($email, $nombre);
 
 
@@ -204,28 +204,45 @@
 	function login($usuario, $password)
 	{
 		global $mysqli;
-		
+
+        /**
+         * Que buena esta la consulta esta de MySQL, en la consulta donde esta
+         * el simbolo '?' se le pasa los parametros de la funcion y lo enviamos
+         * mediante 'bind_param'
+         */
 		$stmt = $mysqli->prepare("SELECT id, id_tipo, password FROM usuarios WHERE usuario = ? || correo = ? LIMIT 1");
 		$stmt->bind_param("ss", $usuario, $usuario);
-		$stmt->execute();
+		$stmt->execute();   // lo ejecutamos
 		$stmt->store_result();
 		$rows = $stmt->num_rows;
 		
-		if($rows > 0) {
-			
+		if($rows > 0) { // y verificamos que devuelve algun resultado
+
+            /**
+             * Esta funcion verifica que el usuario haya activado su cuente
+             * mediante el correo que se le envio
+             */
 			if(isActivo($usuario)){
 				
-				$stmt->bind_result($id, $id_tipo, $passwd);
-				$stmt->fetch();
+				$stmt->bind_result($id, $id_tipo, $passwd); // Se trae los resultados de la consulta de arriba :-O
+				$stmt->fetch(); // Mediante esta es que se traen los datos
 				
 				$validaPassw = password_verify($password, $passwd);
 				
 				if($validaPassw){
 					
-					lastSession($id);
+					lastSession($id); // Guarda la fecha de cuando se abre la session
+
+                    /**
+                     * Se crean estas variables de sision, vamos a poder llamarla
+                     * desde cualquiera de nuestros script
+                     */
 					$_SESSION['id_usuario'] = $id;
 					$_SESSION['tipo_usuario'] = $id_tipo;
-					
+
+                    /**
+                     * Y ahora redireccionamos a un script
+                     */
 					header("location: welcome.php");
 					} else {
 					
